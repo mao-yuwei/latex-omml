@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.latextoword</groupId>
+  <artifactId>latex-word</artifactId>
+  <version>1.0.38</version>
+  <packaging>jar</packaging>
+
+  <name>latextoword</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+	<dependency>
+	   <groupId>com.fasterxml.jackson.core</groupId>
+	   <artifactId>jackson-databind</artifactId>
+	   <version>2.9.3</version>
+    </dependency>
+  </dependencies>
+    <build>
+     <plugins>
+         <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-assembly-plugin</artifactId>
+             <version>2.4.1</version>
+             <configuration>
+                 <descriptorRefs>
+                     <descriptorRef>jar-with-dependencies</descriptorRef>
+                 </descriptorRefs>
+                 <archive>
+                     <manifest>
+                         <mainClass>util.Microseer</mainClass>
+                     </manifest>
+                 </archive>
+             </configuration>
+             <executions>
+                 <execution>
+                     <id>make-assembly</id>
+                     <phase>package</phase>
+                     <goals>
+                         <goal>single</goal>
+                     </goals>
+                 </execution>
+             </executions>
+         </plugin>
+     </plugins>
+    </build>
+    <distributionManagement>
+        <repository>
+            <id>Baijia_Release</id>
+            <name>Baijia构件发布版仓库</name>
+            <url>https://nexus.baijia.com/repository/releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>Baijia_Snapshot</id>
+            <name>Baijia构件快照版仓库</name>
+            <url>https://nexus.baijia.com/repository/snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+</project>
